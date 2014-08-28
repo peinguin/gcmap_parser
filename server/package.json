@@ -1,0 +1,21 @@
+{
+  "name": "gcmap_parser",
+  "version": "0.0.1",
+  "description": "Airport infos",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackdcrawford/five.git"
+  },
+  "author": "Sergey Fesyura <pingvein@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peinguin/gcmap_parser/issues"
+  },
+  "dependencies": {
+    "sqlite3": "*",
+    "socket.io": "*",
+    "q": "*",
+    "iconv": "*"
+  }
+}
