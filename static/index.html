@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="lib/jquery-2.1.1/jquery-2.1.1.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="lib/bootstrap-3.2.0-dist/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="lib/bootstrap-3.2.0-dist/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="lib/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+
+    <script src="lib/socket.io-1.0.6/socket.io-1.0.6.js"></script>
+    <script src="lib/knockout-3.2.0/knockout-3.2.0.js"></script>
+
+    <script src="app/config.js"></script>
+    <script src="app/model.js"></script>
+  </head>
+  <body>
+    <div data-bind="visible: shouldShowMessage" class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <strong>Warning!</strong><span data-bind="text: error"></span>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <table class="table">
+          <thead><tr>
+            <th>Id</th>
+            <th>IATA</th>
+            <th>Name</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>TimeZone</th>
+            <th></th>
+          </tr></thead>
+          <tbody data-bind="foreach: history">
+            <tr>
+                <td data-bind="text: id"></td>
+                <td data-bind="text: IATA"></td>
+                <td><input data-bind="value: Name, event: { change: $parent.itemChanged }" /></td>
+                <td><input data-bind="value: Latitude, event: { change: $parent.itemChanged }" /></td>
+                <td><input data-bind="value: Longitude, event: { change: $parent.itemChanged }" /></td>
+                <td><input data-bind="value: TimeZone, event: { change: $parent.itemChanged }" /></td>
+                <td data-bind="click: $parent.remove">Remove</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <input type="email" class="form-control" id="IATA" placeholder="Enter IATA" />
+          </div>
+          <button type="submit" class="btn btn-default" data-bind="click: find">Find</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="app/app.js"></script>
+  </body>
+</html>
