@@ -27,4 +27,4 @@ node_modules
 server/db.sqlite3
 server/config.js
 
-client/app/config.js
+static/app/config.js
