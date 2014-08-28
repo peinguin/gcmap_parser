@@ -21,7 +21,10 @@ Model.prototype.validate = function(){
   ){
     errors.push('IATA must be 1, 2, 3, or 4 character combinations');
   }
-  if(!(~this.TimeZone().indexOf('UTC'))){
+  if(
+    this.TimeZone() && !== null &&
+    !(~this.TimeZone().indexOf('UTC'))
+  ){
     errors.push('TimeZone must contain "UTC"');
   }
   return errors;
